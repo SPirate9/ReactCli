@@ -1,5 +1,10 @@
 workflows:
-    sample-workflow:
-        name: Codemagic Sample Workflow
-        max_build_duration: 120
-        instance_type: mac_mini_m1
+  version: 2
+  build_and_test:
+    scripts:
+      - name: Install dependencies
+        script: yarn install
+      - name: Build Android APK
+        script: yarn android:build
+      - name: Build iOS IPA
+        script: yarn ios:build
